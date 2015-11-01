@@ -4,7 +4,7 @@ import felt.entity.Felt;
 
 public class Spilleplade {
 	
-	//Opjekter til spilleplade klassen
+	//Opjekter til spilleplade klassen, samt tildeler objekter vaerdi
 	
 	private  Felt f1 = new Felt( 250 ); 
 	private  Felt f2 = new Felt( -100 );
@@ -22,7 +22,7 @@ public class Spilleplade {
 	
 	public void spilleplade () {
 	
-	//Tildeler hvert feltobjekt værdi
+	//Indseatter Felt objekter i spilleplade array
 	
 	spilleplade[0] =  f1.getVaerdi();
 	spilleplade[1] =  f2.getVaerdi();

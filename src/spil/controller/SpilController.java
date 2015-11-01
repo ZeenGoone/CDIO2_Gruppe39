@@ -17,7 +17,7 @@ public static void main(String[] args){
 	
 	
 	
-public void spilRunde(Spiller s,){
+public void spilRunde(Spiller s){
 	raflebæger.slaaterninger
 	
 	

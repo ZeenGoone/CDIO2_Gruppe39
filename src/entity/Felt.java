@@ -12,20 +12,20 @@ public class Felt {
 	private boolean harToFarver = false;
 	
 	// Konstruktører
-	public Felt( String feltNavn, int vaerdi, Color baggrundsFarve, Color forgrundsFarve, String beskrivelse, boolean harToFarver) {
+	public Felt( String feltNavn, int vaerdi, Color baggrundsFarve, Color forgrundsFarve, String beskrivelse) {
 		this.feltNavn = feltNavn;
 		this.vaerdi = vaerdi;
 		this.baggrundsFarve = baggrundsFarve;
 		this.forgrundsFarve = forgrundsFarve;
 		this.beskrivelse = beskrivelse;
-		this.harToFarver = harToFarver;
+		this.harToFarver = true;
 	}
-	public Felt( String feltNavn, int vaerdi, Color baggrundsFarve, String beskrivelse, boolean harToFarver) {
+	public Felt( String feltNavn, int vaerdi, Color baggrundsFarve, String beskrivelse) {
 		this.feltNavn = feltNavn;
 		this.vaerdi = vaerdi;
 		this.baggrundsFarve = baggrundsFarve;
 		this.beskrivelse = beskrivelse;
-		this.harToFarver = harToFarver;
+		this.harToFarver = false;
 	}
 
 	// Metodedefinitioner get'ere inkluderet

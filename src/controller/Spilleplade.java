@@ -23,7 +23,6 @@ public class Spilleplade {
 	spilleplade[8] =  new Felt("The Werewall (werewolf-wall)", -80, Color.RED, Color.WHITE, "Du blev jagtet af varulve, og løb så hurtigt, at du tabte 80, men hurtigt kom videre!");
 	spilleplade[9] =  new Felt("The Pit", -50, Color.LIGHT_GRAY, Color.BLACK, "Du blev berøvet, og mistede 50.");
 	spilleplade[10] =  new Felt("Goldmine", 650, Color.YELLOW, "Du fandt guld, og solgte det for 650, du er rig!");
-	System.out.println("konstruktør kørt");
 	}
 	
 	public Felt getFelt ( int feltNummer ) {

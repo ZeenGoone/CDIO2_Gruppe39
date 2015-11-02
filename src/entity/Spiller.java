@@ -1,4 +1,4 @@
-package spil.entity;
+package entity;
 
 public class Spiller {
 

@@ -1,4 +1,4 @@
-package felt.entity;
+package entity;
 
 public class Felt {
 	

@@ -1,4 +1,4 @@
-package test2;
+package controller;
 
 import java.awt.Color;
 
@@ -7,10 +7,10 @@ import desktop_fields.Field;
 import desktop_fields.Shipping;
 import desktop_fields.Street;
 import desktop_resources.GUI;
-import spil.entity.Spiller;
-import spil.entity.Terning;
+import entity.Spiller;
+import entity.Terning;
 
-public class Test2 {
+public class GUIcontroller {
 
 	private static Spiller s1 = new Spiller();
 	private static Spiller s2 = new Spiller();
@@ -18,8 +18,7 @@ public class Test2 {
 	private static Terning t2 = new Terning();
 	private static int currentPlayer = 1;
 
-	public static void main(String[] args) {
-
+	GUIcontroller(){
 		// Koden til felterne
 		Field[] fields = new Field[11];
 
@@ -109,7 +108,7 @@ public class Test2 {
 				.build();
 		// Laver felterne, SKAL komme før alt andet man henter fra GUI
 		GUI.create(fields);
-
+		
 		// Bilernes kode, skal nok i en klasse for sig.
 		Car car1 = new Car.Builder()
 				.typeTractor()
@@ -124,29 +123,40 @@ public class Test2 {
 				.primaryColor(Color.WHITE)
 				.secondaryColor(Color.BLACK)
 				.build();
-
+		
 		// Tilføjelse af spillere
 		GUI.addPlayer("Spiller 1", 1000, car1);
 		GUI.addPlayer("Spiller 2", 1000, car2);
+	}
 
-		//Placere en bil på et felt, fra en spiller
-		GUI.setCar(11, "Spiller 2");
-		GUI.removeCar(11, "Spiller 2");
+	public void setBilPaaFelt(int spillernummer, int felt){
+		if(spillernummer == 1){
+			//Placere en bil på et felt, fra en spiller
+			GUI.setCar(felt, "Spiller 1");
+		}
+		else{
+			//Placere en bil på et felt, fra en spiller
+			GUI.setCar(felt, "Spiller 2");
+		}
+	}
+	
+	public void fjernBilFraFelt(int spillernummer, int felt){
+		if(spillernummer == 1){
+			// Fjern bil fra felt
+			GUI.removeCar(felt, "Spiller 1");
+		}
+		else{
+			// Fjern bil fra felt
+			GUI.removeCar(felt, "Spiller 2");
+		}
+	}
+			boolean vinder = false;
+	public void setTerninger(Raflebaeger raflebaeger){
+		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
+	}
 
-		boolean vinder = false;
-
-		
-		//hvis spillet er afsluttet skal der ikke udskrives næste spiller
-		if(vinder == false){
-			GUI.getUserButtonPressed("Spiller " + currentPlayer + "'s tur", "Tryk på knappen for næste kast!");}
-
-
-			
-			//vis værdier på terninger og vis sum på spiller
-			GUI.setDice(t1.getAntalOejne(), t2.getAntalOejne());
-
-
+	public void afslutSpil(){
+		GUI.close();
 	}
 
 }
-

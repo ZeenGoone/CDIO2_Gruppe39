@@ -1,4 +1,4 @@
-package brik.entity;
+package entity;
 
 public class Brik {
 private String spillerNummer;

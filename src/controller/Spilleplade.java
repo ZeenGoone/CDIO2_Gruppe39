@@ -1,6 +1,6 @@
-package spilleplade.controller;
+package controller;
 
-import felt.entity.Felt;
+import entity.Felt;
 
 public class Spilleplade {
 	

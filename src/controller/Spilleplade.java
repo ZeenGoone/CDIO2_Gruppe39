@@ -1,45 +1,32 @@
 package controller;
 
+import java.awt.Color;
+
 import entity.Felt;
 
 public class Spilleplade {
 	
 	//Opjekter til spilleplade klassen, samt tildeler objekter vaerdi
-	
-	private  Felt f1 = new Felt( 250 ); 
-	private  Felt f2 = new Felt( -100 );
-	private  Felt f3 = new Felt( 100 );
-	private  Felt f4 = new Felt( 20 );
-	private  Felt f5 = new Felt( 180 );
-	private  Felt f6 = new Felt( 0 );
-	private  Felt f7 = new Felt( -70 );
-	private  Felt f8 = new Felt( 60 );
-	private  Felt f9 = new Felt( -80 );
-	private  Felt f10 = new Felt( -50 );
-	private  Felt f11 = new Felt( 650 );
-
-	private static int[] spilleplade = new int [11];
+	private static Felt[] spilleplade = new Felt[11];
 	
 	public void spilleplade () {
 	
 	//Indseatter Felt objekter i spilleplade array
-	
-	spilleplade[0] =  f1.getVaerdi();
-	spilleplade[1] =  f2.getVaerdi();
-	spilleplade[2] =  f3.getVaerdi();
-	spilleplade[3] =  f4.getVaerdi();
-	spilleplade[4] =  f5.getVaerdi();
-	spilleplade[5] =  f6.getVaerdi();
-	spilleplade[6] =  f7.getVaerdi();
-	spilleplade[7] =  f8.getVaerdi();
-	spilleplade[8] =  f9.getVaerdi();
-	spilleplade[9] =  f10.getVaerdi();
-	spilleplade[10] =  f11.getVaerdi();
+
+	spilleplade[0] =  new Felt("Tower", 250, Color.YELLOW,"Du har fundet en skat i tårnet, og finder 250, heldige dig."); 
+	spilleplade[1] =  new Felt("Crater", -100, Color.BLACK, Color.WHITE, "Du faldt og ødelagde udstyr, som du må købe igen for 100.");
+	spilleplade[2] =  new Felt("Palace Gates", 100, Color.YELLOW, "Du fik en masse rige venner, og fik 100.");
+	spilleplade[3] =  new Felt("Cold Desert", -20, Color.BLACK, Color.WHITE, "Du brugte 20 på udstyr til at klare dig i området.");
+	spilleplade[4] =  new Felt("Walled City", 180, Color.WHITE, "Du hjalp vagterne med banditter, og fik 180 for dit heltemod!");
+	spilleplade[5] =  new Felt("Monastery", 0, Color.BLUE, Color.WHITE, "Du brugte dagen på at slappe af, og få lidt ro.");
+	spilleplade[6] =  new Felt("Black Cave", -70, Color.BLACK, Color.WHITE, "Du overnattede i grotten, og manglede 70 da du vågnede.");
+	spilleplade[7] =  new Felt("Huts in the mountain", 60, Color.YELLOW, "Du hjalp til i byen og tjente dig 60.");
+	spilleplade[8] =  new Felt("The Werewall (werewolf-wall)", -80, Color.RED, Color.WHITE, "Du blev jagtet af varulve, og løb så hurtigt, at du tabte 80, men hurtigt kom videre!");
+	spilleplade[9] =  new Felt("The Pit", -50, Color.BLACK, Color.WHITE, "Du blev berøvet, og mistede 50.");
+	spilleplade[10] =  new Felt("Goldmine", 650, Color.YELLOW, "Du fandt guld, og solgte det for 650, du er rig!");
 	}
 	
-	public int getFeltVaerdi ( int i ) {
-		return spilleplade[ i-2 ];
+	public Felt getFelt ( int i ) {
+		return spilleplade[ i ];
 	}
-	
-	
 }

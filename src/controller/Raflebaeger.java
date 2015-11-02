@@ -15,10 +15,6 @@ public class Raflebaeger {
 		return baeger[terningenummer].getAntalOejne();
 	}
 	
-	public void setTerning(int terningenummer, int ny_terningevaerdi){
-		baeger[terningenummer].setTerning(ny_terningevaerdi);
-	}
-	
 	public void kastTerning(){
 		baeger[0].kastTerning();
 		baeger[1].kastTerning();

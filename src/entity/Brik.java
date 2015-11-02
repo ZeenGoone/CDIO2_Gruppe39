@@ -1,12 +1,15 @@
 package entity;
 
 public class Brik {
-private String spillerNummer;
+	private int spillerNummer;
 
-
-public Brik(){
-	
-}
-
-
+	public Brik(int spillerNummer){
+		this.spillerNummer = spillerNummer;
+	}
+	public int getSpillerNummer(){
+		return this.spillerNummer;
+	}
+	public String getSpillerNavn(){
+		return "Spiller " + spillerNummer;
+	}
 }

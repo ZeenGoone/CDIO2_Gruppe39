@@ -5,11 +5,13 @@ public class Spiller {
 	private static int maxSpillere = 0;
 	private int spillerNummer = 0;
 	private int beholdning = 1000;
+	private Brik spillerBrik;
 
 
 	public Spiller(){
 		++maxSpillere;
 		spillerNummer = maxSpillere;
+		spillerBrik = new Brik(spillerNummer);
 	}
 
 	// opdaterer spillerens beholdning
@@ -24,8 +26,7 @@ public class Spiller {
 	public int getBeholdning(){
 		return beholdning;
 	}
-	
-	public int getSpillerNummer(){
-		return spillerNummer;
-	}	
+	public Brik getBrik(){
+		return this.spillerBrik;
+	}
 }

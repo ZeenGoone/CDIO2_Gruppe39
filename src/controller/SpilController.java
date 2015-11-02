@@ -5,22 +5,22 @@ import entity.Spiller;
 
 public class SpilController {
 
-	//initialiserer de n�dvendige objekter
-	private static Spilleplade sp = new Spilleplade();
+	//initialiserer de nødvendige objekter
+	private static Spilleplade sp;
 	private static GUIcontroller gc;
 	Spiller s1 = new Spiller();	
 	Spiller s2 = new Spiller();	
 	Raflebaeger raflebaeger = new Raflebaeger();
-	private String nuvarendespiller;
+	private int nuvarendespiller;
 
 	public static void main(String[] args) {
+		sp = new Spilleplade();
 		gc = new GUIcontroller(sp);
 		gc.startSpil();
-
 	}
 	
 	public void spilRunde(Spiller s){
-		raflebaeger.kastTerning();
+		raflebaeger.slaaTerninger();
 	}
 
 	public void flytBrik(int a, String b){

@@ -15,9 +15,9 @@ public class Raflebaeger {
 		return baeger[terningenummer].getAntalOejne();
 	}
 	
-	public void kastTerning(){
-		baeger[0].kastTerning();
-		baeger[1].kastTerning();
+	public void slaaTerninger(){
+		baeger[0].slaaTerning();
+		baeger[1].slaaTerning();
 	}
 	
 	public int getSum(){

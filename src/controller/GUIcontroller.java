@@ -12,13 +12,16 @@ import entity.Terning;
 
 public class GUIcontroller {
 
-	private static Spilleplade s;
+	// opretter spilleplade attribut
+	private Spilleplade s;
 
 	GUIcontroller(Spilleplade s){
+		// sætter attributten lig spilleplade parameter
 		this.s=s;
 	}
 
 	public Street getFeltVaerdier(int iterator){
+		// Tjekker om feltet har defineret mere end én farve
 		if(s.getFelt(iterator).harToFarver()){
 			return new Street.Builder()
 					 .setTitle(s.getFelt(iterator).getFeltNavn())
@@ -37,22 +40,14 @@ public class GUIcontroller {
 					 .build();
 		}
 	}
-	
 	public void startSpil(){
+
 		// Koden til felterne
 		Field[] fields = new Field[11];
-		fields[0] = getFeltVaerdier(0);
-		fields[1] = getFeltVaerdier(1);
-		fields[2] = getFeltVaerdier(2);
-		fields[3] = getFeltVaerdier(3);
-		fields[4] = getFeltVaerdier(4);
-		fields[5] = getFeltVaerdier(5);
-		fields[6] = getFeltVaerdier(6);
-		fields[7] = getFeltVaerdier(7);
-		fields[8] = getFeltVaerdier(8);
-		fields[9] = getFeltVaerdier(9);
-		fields[10] =getFeltVaerdier(10);
-		
+		for(int i = 0;i < fields.length;i++){
+			fields[i] = getFeltVaerdier(i);
+		}
+				
 		// Laver felterne, SKAL komme før alt andet man henter fra GUI
 		GUI.create(fields);
 		
@@ -64,8 +59,12 @@ public class GUIcontroller {
 		GUI.addPlayer("Spiller 1", 1000, car1);
 		GUI.addPlayer("Spiller 2", 1000, car2);
 	}
-	
+	public void opdaterSpillerScore(Spiller spiller){
+		// Opdaterer GUI for den givne spiller til nuværende beholdning
+		GUI.setBalance(spiller.getBrik().getSpillerNavn(), spiller.getBeholdning());
+	}
 	public Car setCar(Color c1, Color c2){
+		// Laver et nyt objekt af typen Car og returner dette
 		 return new Car.Builder()
 			.typeTractor()
 			.patternHorizontalDualColor()
@@ -73,33 +72,20 @@ public class GUIcontroller {
 			.secondaryColor(c2)
 			.build();
 	}
-	
-	public void setBilPaaFelt(int spillernummer, int felt){
-		if(spillernummer == 1){
-			//Placere en bil på et felt, fra en spiller
-			GUI.setCar(felt, "Spiller 1");
-		}
-		else{
-			//Placere en bil på et felt, fra en spiller
-			GUI.setCar(felt, "Spiller 2");
-		}
+	public void placerBrik(Spiller s, int felt){
+		// Placer brik på spillepladen af den givne spiller
+		GUI.setCar(felt, s.getBrik().getSpillerNavn());
 	}
-	
-	public void fjernBilFraFelt(int spillernummer, int felt){
-		if(spillernummer == 1){
-			// Fjern bil fra felt
-			GUI.removeCar(felt, "Spiller 1");
-		}
-		else{
-			// Fjern bil fra felt
-			GUI.removeCar(felt, "Spiller 2");
-		}
+	public void fjernBrik(Spiller s, int felt){
+		// Fjern bil fra felt
+		GUI.removeCar(felt, s.getBrik().getSpillerNavn());
 	}
-	
 	public void setTerninger(Raflebaeger raflebaeger){
 		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
 	}
-
+	public void visBesked(String besked){
+		GUI.showMessage(besked);
+	}
 	public void afslutSpil(){
 		GUI.close();
 	}

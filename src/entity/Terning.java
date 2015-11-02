@@ -21,7 +21,7 @@ public class Terning {
 		this.terningesider = ny_terningesider;
 	}
 	
-	public int kastTerning(){
+	public int slaaTerning(){
 		antalOejne = (int) (Math.random()*terningesider+1);
 		return antalOejne;
 	}

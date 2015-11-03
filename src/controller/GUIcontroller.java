@@ -22,7 +22,7 @@ public class GUIcontroller {
 
 	public Street getFeltVaerdier(int iterator){
 		// Tjekker om feltet har defineret mere end én farve
-		if(s.getFelt(iterator).harToFarver()){
+		if(!s.getFelt(iterator).harToFarver()){
 			return new Street.Builder()
 					 .setTitle(s.getFelt(iterator).getFeltNavn())
 					 .setSubText("\"" + s.getFelt(iterator).getVaerdi() + "\"")

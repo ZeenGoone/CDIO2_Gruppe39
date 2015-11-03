@@ -4,6 +4,7 @@ import java.awt.Color;
 
 public class Felt {
 	
+	// Initialiserer attributter
 	private String feltNavn;
 	private int vaerdi;
 	private Color forgrundsFarve;
@@ -34,6 +35,7 @@ public class Felt {
 	public Color getBaggrundsFarve() {return baggrundsFarve;}
 	public Color getForgrundsFarve() {return forgrundsFarve;}
 	public String getBeskrivelse() {return beskrivelse;}
+	// Returnerer om objektet har baggrundsfarve OG forgrundsfarve(tekstfarve)
 	public boolean harToFarver() {return this.harToFarver;}
 
 }

@@ -2,16 +2,15 @@ package entity;
 
 public class Spiller {
 
+	// Initialiserer attributter
 	private static int maxSpillere = 0;
-	private int spillerNummer = 0;
 	private int beholdning = 1000;
 	private Brik spillerBrik;
 
-
+	// Konstruktør tæller maxspillere 1 op og en brik bliver tildelt med et spillernummer
 	public Spiller(){
 		++maxSpillere;
-		spillerNummer = maxSpillere;
-		spillerBrik = new Brik(spillerNummer);
+		spillerBrik = new Brik(maxSpillere);
 	}
 
 	// opdaterer spillerens beholdning

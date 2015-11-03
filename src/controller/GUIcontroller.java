@@ -81,12 +81,15 @@ public class GUIcontroller {
 		GUI.removeCar(felt, s.getBrik().getSpillerNavn());
 	}
 	public void setTerninger(Raflebaeger raflebaeger){
+		// Sætter den grafiske repræsentation af terningerne i GUI
 		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
 	}
 	public void visBesked(String besked){
+		// Viser besked med OK knap i GUI
 		GUI.showMessage(besked);
 	}
 	public void afslutSpil(){
+		// Lukker GUI ned
 		GUI.close();
 	}
 

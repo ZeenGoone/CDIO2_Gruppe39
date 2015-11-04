@@ -4,16 +4,16 @@ public class Brik {
 	// Initialiserer attribut
 	private int spillerNummer;
 
-	// Konstruktør giver brikken et spillernummer den hører til
+	// Konstruktoer giver brikken et spillernummer den hører til
 	public Brik(int spillerNummer){
 		this.spillerNummer = spillerNummer;
 	}
 	public int getSpillerNummer(){
-		// Returner hvilket spillernummer objektet(brik) hører til
+		// Returner hvilket spillernummer objektet(brik) hoerer til
 		return this.spillerNummer;
 	}
 	public String getSpillerNavn(){
-		// Returner SpillerNavn baseret på spillernummer
+		// Returner SpillerNavn baseret paa spillernummer
 		return "Spiller " + spillerNummer;
 	}
 }

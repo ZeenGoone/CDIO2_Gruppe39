@@ -16,12 +16,12 @@ public class GUIcontroller {
 	private Spilleplade s;
 
 	GUIcontroller(Spilleplade s){
-		// sætter attributten lig spilleplade parameter
+		// saetter attributten lig spilleplade parameter
 		this.s=s;
 	}
 
 	public Street getFeltVaerdier(int iterator){
-		// Tjekker om feltet har defineret mere end én farve
+		// Tjekker om feltet har defineret mere end en farve
 		if(!s.getFelt(iterator).harToFarver()){
 			return new Street.Builder()
 					 .setTitle(s.getFelt(iterator).getFeltNavn())
@@ -48,19 +48,19 @@ public class GUIcontroller {
 			fields[i] = getFeltVaerdier(i);
 		}
 				
-		// Laver felterne, SKAL komme før alt andet man henter fra GUI
+		// Laver felterne, SKAL komme foer alt andet man henter fra GUI
 		GUI.create(fields);
 		
 		// Bilernes kode, skal nok i en klasse for sig.
 		Car car1 = setCar(Color.ORANGE, Color.RED);
 		Car car2 = setCar(Color.WHITE, Color.BLACK);
 		
-		// Tilføjelse af spillere
+		// Tilfoejelse af spillere
 		GUI.addPlayer("Spiller 1", 1000, car1);
 		GUI.addPlayer("Spiller 2", 1000, car2);
 	}
 	public void opdaterSpillerScore(Spiller spiller){
-		// Opdaterer GUI for den givne spiller til nuværende beholdning
+		// Opdaterer GUI for den givne spiller til nuvaerende beholdning
 		GUI.setBalance(spiller.getBrik().getSpillerNavn(), spiller.getBeholdning());
 	}
 	public Car setCar(Color c1, Color c2){
@@ -73,7 +73,7 @@ public class GUIcontroller {
 			.build();
 	}
 	public void placerBrik(Spiller s, int felt){
-		// Placer brik på spillepladen af den givne spiller
+		// Placer brik paa spillepladen af den givne spiller
 		GUI.setCar(felt, s.getBrik().getSpillerNavn());
 	}
 	public void fjernBrik(Spiller s, int felt){
@@ -81,7 +81,7 @@ public class GUIcontroller {
 		GUI.removeCar(felt, s.getBrik().getSpillerNavn());
 	}
 	public void setTerninger(Raflebaeger raflebaeger){
-		// Sætter den grafiske repræsentation af terningerne i GUI
+		// Saetter den grafiske repraesentation af terningerne i GUI
 		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
 	}
 	public void visBesked(String besked){

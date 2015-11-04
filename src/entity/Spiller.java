@@ -7,7 +7,7 @@ public class Spiller {
 	private int beholdning = 1000;
 	private Brik spillerBrik;
 
-	// Konstruktør tæller maxspillere 1 op og en brik bliver tildelt med et spillernummer
+	// Konstruktoer tae�ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
 	public Spiller(){
 		++maxSpillere;
 		spillerBrik = new Brik(maxSpillere);

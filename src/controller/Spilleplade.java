@@ -8,10 +8,10 @@ public class Spilleplade {
 	
 	// Objekter til spilleplade klassen
 	private static Felt[] spilleplade;
-	// Konstruktør af spillepladen
+	// Konstruktoer af spillepladen
 	Spilleplade() {
 	spilleplade = new Felt[11];
-	//Indsætter Felt objekter i spilleplade array
+	//Indsaetter Felt objekter i spilleplade array
 	spilleplade[0] =  new Felt("Tower", 250, Color.PINK,"Du har fundet en skat i tårnet, og finder 250, heldige dig."); 
 	spilleplade[1] =  new Felt("Crater", -100, Color.WHITE, Color.BLACK, "Du faldt og ødelagde udstyr, som du må købe igen for 100.");
 	spilleplade[2] =  new Felt("Palace Gates", 100, Color.DARK_GRAY, Color.WHITE, "Du fik en masse rige venner, og fik 100.");

@@ -1,11 +1,12 @@
 package controller;
 
+import desktop_resources.GUI;
 import entity.Felt;
 import entity.Spiller;
 
 public class SpilController {
 
-	//initialiserer de nødvendige objekter
+	//initialiserer de noedvendige objekter
 	private static Spilleplade sp;
 	private static GUIcontroller gc;
 	Spiller s1 = new Spiller();	
@@ -21,6 +22,7 @@ public class SpilController {
 	
 	public void spilRunde(Spiller s){
 		raflebaeger.slaaTerninger();
+		raflebaeger.getSum();
 	}
 
 	public void flytBrik(int a, String b){

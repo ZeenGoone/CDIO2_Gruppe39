@@ -14,7 +14,7 @@ public class Raflebaeger {
 	}
 	
 	public int getTerning(int terningenummer){
-		// få vist hvad den givne ternings antal øjne er lige nu
+		// få vist hvad den givne ternings antal oejne er lige nu
 		return baeger[terningenummer].getAntalOejne();
 	}
 	
@@ -25,7 +25,7 @@ public class Raflebaeger {
 	}
 	
 	public int getSum(){
-		// her lægges antal øjne på de to terninger sammen
+		// her laegges antal oejne paa de to terninger sammen
 		return (baeger[0].getAntalOejne() + baeger[1].getAntalOejne());
 	}
 	

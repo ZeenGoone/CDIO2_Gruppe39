@@ -12,7 +12,7 @@ public class Felt {
 	private String beskrivelse;
 	private boolean harToFarver = false;
 	
-	// Konstruktører
+	// Konstruktoerer
 	public Felt( String feltNavn, int vaerdi, Color baggrundsFarve, Color forgrundsFarve, String beskrivelse) {
 		this.feltNavn = feltNavn;
 		this.vaerdi = vaerdi;

@@ -9,9 +9,9 @@ public class SpilController {
 	//initialiserer de noedvendige objekter
 	private static Spilleplade sp;
 	private static GUIcontroller gc;
-	private static Spiller s1 = new Spiller();	
-	private static Spiller s2 = new Spiller();	
-	private static Raflebaeger raflebaeger = new Raflebaeger();
+	private static Spiller s1;
+	private static Spiller s2;
+	private static Raflebaeger raflebaeger;
 	
 	private static int nuvarendespiller = 1;
 	private static boolean vinder = false;
@@ -19,12 +19,13 @@ public class SpilController {
 	public static void main(String[] args) {
 		sp = new Spilleplade();
 		gc = new GUIcontroller(sp);
+		raflebaeger = new Raflebaeger();
+		s1 = new Spiller();
+		s2 = new Spiller();
 		gc.startSpil();
 		
-
-
 		//Mens vinder ikke er fundet
-		while(vinder == false) {
+		while(!vinder) {
 			if ( nuvarendespiller == 1) {
 				nuvarendespiller = 2;
 				spilRunde(s1);
@@ -33,10 +34,11 @@ public class SpilController {
 				spilRunde(s2);
 				nuvarendespiller = 1;
 			}
-			if (vinder == false) {
+			if (!vinder) {
 				GUI.getUserButtonPressed("Spiller " + nuvarendespiller + "s tur", "Tryk for at kaste!");	
 			}			
 		}
+		gc.afslutSpil();
 	}
 
 
@@ -47,7 +49,8 @@ public class SpilController {
 		//L�gger feltets v�rdi til spillers beholdning
 		s.opdaterBeholdning(sp.getFelt(raflebaeger.getSum()-2).getVaerdi());
 		gc.opdaterSpillerScore(s);
-		
+		gc.setTerninger(raflebaeger);
+		flytBrik(s, raflebaeger.getSum()-1);
 		gc.visBesked(sp.getFelt(raflebaeger.getSum()-2).getBeskrivelse());
 		
 		if ( raflebaeger.getSum() == 10 ) {
@@ -56,13 +59,17 @@ public class SpilController {
 		if ( s.getBeholdning() >= 1200) {
 			getNuvaerendespiller( nuvarendespiller );
 			GUI.getUserButtonPressed("Spiller " + nuvarendespiller + " har vundet gz", "Fedt spil!");
-			vinder = true;
-			gc.afslutSpil();	
+			vinder = true;	
 		}
+		fjernBrik(s, raflebaeger.getSum()-1);
 	}
 
-	public void flytBrik(Spiller s, int felt){
+	public static void flytBrik(Spiller s, int felt){
 		gc.placerBrik(s, felt);
+	}
+	
+	public static void fjernBrik(Spiller s, int felt){
+		gc.fjernBrik(s, felt);
 	}
 	
 	public static void getNuvaerendespiller ( int nuvaerendespiller ) {

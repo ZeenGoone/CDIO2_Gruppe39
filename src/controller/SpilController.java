@@ -13,16 +13,16 @@ public class SpilController {
 	static Spiller s2 = new Spiller();	
 	static Raflebaeger raflebaeger = new Raflebaeger();
 	private static int nuvarendespiller = 1;
+	private static boolean vinder = false;
 
 	public static void main(String[] args) {
 		sp = new Spilleplade();
 		gc = new GUIcontroller(sp);
 		gc.startSpil();
-		boolean vinder = false;
 
 
 		//Mens vinder ikke er fundet
-		while(vinder == false) {
+		while(!vinder) {
 			if ( nuvarendespiller == 1) {
 				nuvarendespiller = 2;
 				spilRunde(s1);
@@ -31,12 +31,10 @@ public class SpilController {
 				spilRunde(s2);
 				nuvarendespiller = 1;
 			}
-			if (vinder == false) {
+			if (!vinder) {
 				GUI.getUserButtonPressed("Spiller " + nuvarendespiller + "s tur", "Tryk for at kaste!");	
 			}
-			
 		}
-
 	}
 
 
@@ -44,9 +42,10 @@ public class SpilController {
 
 		raflebaeger.slaaTerninger();
 		
-		//Lægger feltets værdi til spillers beholdning
+		//Lï¿½gger feltets vï¿½rdi til spillers beholdning
 		s.opdaterBeholdning(sp.getFelt(raflebaeger.getSum()-2).getVaerdi());
 		gc.opdaterSpillerScore(s);
+		gc.placerBrik(s, raflebaeger.getSum());
 		
 		gc.visBesked(sp.getFelt(raflebaeger.getSum()-2).getBeskrivelse());
 		
@@ -55,17 +54,16 @@ public class SpilController {
 		}	
 		
 		
-		if ( s.getBeholdning() >= 1200) {
+		if ( s.getBeholdning() >= 3000) {
 			getNuvaerendespiller( nuvarendespiller );
 			GUI.getUserButtonPressed("Spiller " + nuvarendespiller + " har vundet gz", "Fedt spil!");
 			gc.afslutSpil();
-			
-			//vinder = true;
 		}
+		gc.fjernBrik(s, raflebaeger.getSum());
 	}
 
-	public void flytBrik(int a, String b){
-
+	public void flytBrik(Spiller s, int felt){
+		gc.placerBrik(s, felt);
 	}
 	
 	public static void getNuvaerendespiller ( int nuvaerendespiller ) {

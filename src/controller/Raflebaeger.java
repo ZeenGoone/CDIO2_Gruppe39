@@ -15,22 +15,22 @@ public class Raflebaeger {
 	
 	public int getTerning(int terningenummer){
 		// få vist hvad den givne ternings antal oejne er lige nu
-		return baeger[terningenummer].getAntalOejne();
+		return this.baeger[terningenummer-1].getAntalOejne();
 	}
 	
 	public void slaaTerninger(){
 		// de to terninger kalder der slaaTerning metode
-		baeger[0].slaaTerning();
-		baeger[1].slaaTerning();
+		this.baeger[0].slaaTerning();
+		this.baeger[1].slaaTerning();
 	}
 	
 	public int getSum(){
 		// her laegges antal oejne paa de to terninger sammen
-		return (baeger[0].getAntalOejne() + baeger[1].getAntalOejne());
+		return (this.baeger[0].getAntalOejne() + this.baeger[1].getAntalOejne());
 	}
 	
 	public String toString() {
-		return ("Raflebægerets terninger giver: " + baeger[0].getAntalOejne() + " og " + baeger[1].getAntalOejne());
+		return ("Raflebægerets terninger giver: " + this.baeger[0].getAntalOejne() + " og " + this.baeger[1].getAntalOejne());
 	}
 
 }

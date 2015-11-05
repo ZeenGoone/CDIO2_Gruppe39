@@ -13,7 +13,7 @@ public class SpilController {
 	private static Spiller s2;
 	private static Raflebaeger raflebaeger;
 	
-	private static int nuvarendespiller = 1;
+	private static int nuvarendespiller = 0;
 	private static boolean vinder = false;
 	
 	public static void main(String[] args) {
@@ -24,7 +24,21 @@ public class SpilController {
 		s2 = new Spiller();
 		gc.startSpil();
 		
+		
+		//afgoer hvem der starter via math.random
+		int hvemStarter = (int) (Math.random()*2)+1 ;
+		
+		if(hvemStarter == 1 ){
+			nuvarendespiller = 1;
+			gc.visStartBesked(nuvarendespiller);
+		}
+		else{
+			nuvarendespiller = 2;
+			gc.visStartBesked(nuvarendespiller);
+		}
 		//Mens vinder ikke er fundet
+		
+		
 		while(!vinder) {
 			if ( nuvarendespiller == 1) {
 				nuvarendespiller = 2;

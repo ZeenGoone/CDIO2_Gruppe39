@@ -84,9 +84,15 @@ public class GUIcontroller {
 		// Saetter den grafiske repraesentation af terningerne i GUI
 		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
 	}
+	
 	public void visBesked(String besked){
 		// Viser besked med OK knap i GUI
 		GUI.showMessage(besked);
+	}
+	public void visStartBesked(int tur){
+		GUI.getUserButtonPressed("Spiller " + tur + " starter", "Tryk for at kaste!");	
+
+		
 	}
 	public void afslutSpil(){
 		// Lukker GUI ned

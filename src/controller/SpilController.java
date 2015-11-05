@@ -46,7 +46,7 @@ public class SpilController {
 
 		raflebaeger.slaaTerninger();
 		
-		//L�gger feltets v�rdi til spillers beholdning
+		//Laegger feltets vaerdi til spillers beholdning
 		s.opdaterBeholdning(sp.getFelt(raflebaeger.getSum()-2).getVaerdi());
 		gc.opdaterSpillerScore(s);
 		gc.setTerninger(raflebaeger);

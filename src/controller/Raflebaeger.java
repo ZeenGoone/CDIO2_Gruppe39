@@ -14,7 +14,7 @@ public class Raflebaeger {
 	}
 	
 	public int getTerning(int terningenummer){
-		// få vist hvad den givne ternings antal oejne er lige nu
+		// faa vist hvad den givne ternings antal oejne er lige nu
 		return this.baeger[terningenummer-1].getAntalOejne();
 	}
 	

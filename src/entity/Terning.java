@@ -7,7 +7,7 @@ public class Terning {
 	private int terningesider;
 
 	public Terning(){
-		// Saetter antal sider på terningen til 6 som standard
+		// Saetter antal sider paa terningen til 6 som standard
 		terningesider = 6;
 	}
 	

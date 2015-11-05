@@ -9,16 +9,18 @@ public class SpilController {
 	//initialiserer de noedvendige objekter
 	private static Spilleplade sp;
 	private static GUIcontroller gc;
-	static Spiller s1 = new Spiller();	
-	static Spiller s2 = new Spiller();	
-	static Raflebaeger raflebaeger = new Raflebaeger();
+	private static Spiller s1 = new Spiller();	
+	private static Spiller s2 = new Spiller();	
+	private static Raflebaeger raflebaeger = new Raflebaeger();
+	
 	private static int nuvarendespiller = 1;
-
+	private static boolean vinder = false;
+	
 	public static void main(String[] args) {
 		sp = new Spilleplade();
 		gc = new GUIcontroller(sp);
 		gc.startSpil();
-		boolean vinder = false;
+		
 
 
 		//Mens vinder ikke er fundet
@@ -33,14 +35,12 @@ public class SpilController {
 			}
 			if (vinder == false) {
 				GUI.getUserButtonPressed("Spiller " + nuvarendespiller + "s tur", "Tryk for at kaste!");	
-			}
-			
+			}			
 		}
-
 	}
 
 
-	public static void spilRunde(Spiller s){
+	public static void spilRunde(Spiller s) {
 
 		raflebaeger.slaaTerninger();
 		
@@ -54,18 +54,17 @@ public class SpilController {
 			getNuvaerendespiller( nuvarendespiller );
 		}	
 		
-		
 		if ( s.getBeholdning() >= 1200) {
 			getNuvaerendespiller( nuvarendespiller );
 			GUI.getUserButtonPressed("Spiller " + nuvarendespiller + " har vundet gz", "Fedt spil!");
+			vinder = true;
 			gc.afslutSpil();
 			
-			//vinder = true;
 		}
 	}
 
-	public void flytBrik(int a, String b){
-
+	public void flytBrik(int felt, String b){
+		
 	}
 	
 	public static void getNuvaerendespiller ( int nuvaerendespiller ) {

@@ -13,6 +13,8 @@ public class SpilController {
 	private static Spiller s2;
 	private static Raflebaeger raflebaeger;
 	private static Spiller nuvaerendeSpiller;
+	private static int ekstraTurFelt = 10;
+	private static int sumForAtVinde = 3000;
 	
 	private static boolean vinder = false;
 	
@@ -50,11 +52,12 @@ public class SpilController {
 		flytBrik(s, raflebaeger.getSum()-1);
 		gc.visBesked(sp.getFelt(raflebaeger.getSum()-2).getBeskrivelse());
 		
-		if ( s.getBeholdning() >= 1200) {
+		if ( s.getBeholdning() >= sumForAtVinde) {
 			GUIknap(s," har vundet gz", "Fedt spil!" );
 			vinder = true;	
 		}
-		if ( raflebaeger.getSum() == 10 ) {
+		// landet på ekstratur
+		if ( raflebaeger.getSum() == ekstraTurFelt ) {
 			fjernBrik(s, raflebaeger.getSum()-1);
 			return s;
 		}	

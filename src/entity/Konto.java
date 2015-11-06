@@ -27,6 +27,12 @@ public class Konto {
 	
 	// tester at beholdning er opdateret korrekt
 	private boolean testBeholdningsAendring(int beholdning, int aendring){
-		return this.beholdning == beholdning + aendring? true:false;
+		if(this.beholdning > 0){
+			return this.beholdning == beholdning + aendring? true:false;
+		}
+		else{
+			this.beholdning = 0;
+			return true;
+		}
 	}
 }

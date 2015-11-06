@@ -1,7 +1,6 @@
 package controller;
 
 import desktop_resources.GUI;
-import entity.Felt;
 import entity.Spiller;
 
 public class SpilController {

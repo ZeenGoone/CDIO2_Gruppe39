@@ -5,7 +5,6 @@ public class Spiller {
 	// Initialiserer attributter
 	private static int maxSpillere = 0;
 	private int startvaerdi = 1000;
-	private boolean lykkedes = false;
 	private Konto konto = new Konto(startvaerdi);
 	private Brik spillerBrik;
 

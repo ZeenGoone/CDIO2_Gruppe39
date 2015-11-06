@@ -99,7 +99,7 @@ public class SpilController {
 	
 	// sender en besked og knaptekst til GUI
 	public static void GUIknap(Spiller s, String beskedtekst, String knaptekst){
-		GUI.getUserButtonPressed("Spiller " + s.getBrik().getSpillerNummer() + beskedtekst, knaptekst);
+		gc.visKnapBesked(s, beskedtekst, knaptekst);
 	}
 	
 	// placerer brikken på spillepladen

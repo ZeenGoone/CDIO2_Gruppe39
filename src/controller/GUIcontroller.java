@@ -102,6 +102,12 @@ public class GUIcontroller {
 		// Sender besked, og knapbesked til GUI
 		GUI.getUserButtonPressed("Spiller " + tur + " starter", "Tryk for at kaste!");	
 	}
+	
+	// send besked og knaptekst videre til GUI
+	public void visKnapBesked(Spiller s, String besked, String knaptekst){
+		GUI.getUserButtonPressed("Spiller " + s.getBrik().getSpillerNummer() + besked, knaptekst);
+	}
+	
 	public void afslutSpil(){
 		
 		// Lukker GUI ned

@@ -7,11 +7,13 @@ public class Terning {
 	private int terningesider;
 
 	public Terning(){
+		
 		// Saetter antal sider paa terningen til 6 som standard
 		terningesider = 6;
 	}
 	
 	public void setTerning(int terning){
+		
 		// Saetter antal øjne på en terning, kun til test
 		this.antalOejne = terning;
 	}
@@ -30,13 +32,21 @@ public class Terning {
 	}
 	
 	public void setTerningesider(int ny_terningesider){
+		
 		// Laes paa getTerningesider
 		this.terningesider = ny_terningesider;
 	}
 	
 	public int slaaTerning(){
+		
 		// antalOejne saettes tilfaeldigt til et tal mellem 1 og terningens sider i dette tilfaelde
 		antalOejne = (int) (Math.random()*terningesider+1);
+		return antalOejne;
+	}
+
+	public int getAntalOejne() {
+		
+		// Returner hvad antal oejne terningerne viser lige nu
 		return antalOejne;
 	}
 	
@@ -44,8 +54,4 @@ public class Terning {
 		return ("Terninge kastet med " + terningesider + " sider, blev til: " + antalOejne);
 	}
 
-	public int getAntalOejne() {
-		// Returner hvad antal oejne terningerne viser lige nu
-		return antalOejne;
-	}
 }

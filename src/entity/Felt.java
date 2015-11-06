@@ -35,6 +35,7 @@ public class Felt {
 	public Color getBaggrundsFarve() {return baggrundsFarve;}
 	public Color getForgrundsFarve() {return forgrundsFarve;}
 	public String getBeskrivelse() {return beskrivelse;}
+	
 	// Returnerer om objektet har baggrundsfarve OG forgrundsfarve(tekstfarve)
 	public boolean harToFarver() {return this.harToFarver;}
 

@@ -16,11 +16,13 @@ public class GUIcontroller {
 	private Spilleplade s;
 
 	GUIcontroller(Spilleplade s){
+		
 		// saetter attributten lig spilleplade parameter
 		this.s=s;
 	}
 
 	public Street getFeltVaerdier(int iterator){
+		
 		// Tjekker om feltet har defineret mere end en farve
 		if(!s.getFelt(iterator).harToFarver()){
 			return new Street.Builder()
@@ -60,10 +62,12 @@ public class GUIcontroller {
 		GUI.addPlayer("Spiller 2", 1000, car2);
 	}
 	public void opdaterSpillerScore(Spiller spiller){
+		
 		// Opdaterer GUI for den givne spiller til nuvaerende beholdning
 		GUI.setBalance(spiller.getBrik().getSpillerNavn(), spiller.getBeholdning());
 	}
 	public Car setCar(Color c1, Color c2){
+		
 		// Laver et nyt objekt af typen Car og returner dette
 		 return new Car.Builder()
 			.typeTractor()
@@ -73,28 +77,33 @@ public class GUIcontroller {
 			.build();
 	}
 	public void placerBrik(Spiller s, int felt){
+		
 		// Placer brik paa spillepladen af den givne spiller
 		GUI.setCar(felt, s.getBrik().getSpillerNavn());
 	}
 	public void fjernBrik(Spiller s, int felt){
+		
 		// Fjern bil fra felt
 		GUI.removeCar(felt, s.getBrik().getSpillerNavn());
 	}
 	public void setTerninger(Raflebaeger raflebaeger){
+		
 		// Saetter den grafiske repraesentation af terningerne i GUI
 		GUI.setDice(raflebaeger.getTerning(1), raflebaeger.getTerning(2));
 	}
 	
 	public void visBesked(String besked){
+		
 		// Viser besked med OK knap i GUI
 		GUI.showMessage(besked);
 	}
 	public void visStartBesked(int tur){
-		GUI.getUserButtonPressed("Spiller " + tur + " starter", "Tryk for at kaste!");	
-
 		
+		// Sender besked, og knapbesked til GUI
+		GUI.getUserButtonPressed("Spiller " + tur + " starter", "Tryk for at kaste!");	
 	}
 	public void afslutSpil(){
+		
 		// Lukker GUI ned
 		GUI.close();
 	}

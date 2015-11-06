@@ -27,9 +27,12 @@ public class Konto {
 	
 	// tester at beholdning er opdateret korrekt
 	private boolean testBeholdningsAendring(int beholdning, int aendring){
+		
+		// testen kun aktuel hvis den nye beholdning er over 0
 		if(this.beholdning > 0){
 			return this.beholdning == beholdning + aendring? true:false;
 		}
+		// hvis ikke over nul sæt beholdning til 0
 		else{
 			this.beholdning = 0;
 			return true;

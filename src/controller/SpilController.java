@@ -32,7 +32,7 @@ public class SpilController {
 			// finder hvilken spiller der skal kaste, og spiller en runde med denne spiller
 			nuvaerendeSpiller = spilRunde(nuvaerendeSpiller);
 			if (!vinder) {
-				GUI.getUserButtonPressed("Spiller " + nuvaerendeSpiller.getBrik().getSpillerNummer() + "s tur", "Tryk for at kaste!");	
+				GUIknap(nuvaerendeSpiller, "s tur", "Tryk for at kaste!");	
 			}			
 		}
 		// while løkken er afsluttet, vinder er fundet, afslut spil
@@ -51,8 +51,7 @@ public class SpilController {
 		gc.visBesked(sp.getFelt(raflebaeger.getSum()-2).getBeskrivelse());
 		
 		if ( s.getBeholdning() >= 1200) {
-			getNuvaerendespiller( s );
-			GUI.getUserButtonPressed("Spiller " + s.getBrik().getSpillerNummer() + " har vundet gz", "Fedt spil!");
+			GUIknap(s," har vundet gz", "Fedt spil!" );
 			vinder = true;	
 		}
 		if ( raflebaeger.getSum() == 10 ) {
@@ -77,6 +76,10 @@ public class SpilController {
 			gc.visStartBesked(s2.getBrik().getSpillerNummer());
 			return s2;
 		}
+	}
+	
+	public static void GUIknap(Spiller s, String beskedtekst, String knaptekst){
+		GUI.getUserButtonPressed("Spiller " + s.getBrik().getSpillerNummer() + beskedtekst, knaptekst);
 	}
 	
 	public static void flytBrik(Spiller s, int felt){

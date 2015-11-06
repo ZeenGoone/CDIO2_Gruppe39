@@ -6,6 +6,11 @@ public class Terning {
 	private int antalOejne;
 	private int terningesider;
 
+	public Terning(int terningesider) {
+		super();
+		this.terningesider = terningesider;
+	}
+
 	public Terning(){
 		
 		// Saetter antal sider paa terningen til 6 som standard
@@ -49,7 +54,7 @@ public class Terning {
 		// Returner hvad antal oejne terningerne viser lige nu
 		return antalOejne;
 	}
-	
+	@Override
 	public String toString() {
 		return ("Terninge kastet med " + terningesider + " sider, blev til: " + antalOejne);
 	}

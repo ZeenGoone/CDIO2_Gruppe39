@@ -17,9 +17,13 @@ public class Spiller {
 
 	// opdaterer spillerens beholdning
 	public boolean opdaterBeholdning(int opdatering){
-		return konto.setBeholdning(opdatering);
+		return konto.addBeholdning(opdatering);
 	}
 	
+	// set metode til kontos beholdning
+	public void setBeholdning(int vaerdi){
+		konto.setBeholdning(vaerdi);
+	}
 	// get metoder
 	public int getBeholdning(){
 		return konto.getBeholdning();

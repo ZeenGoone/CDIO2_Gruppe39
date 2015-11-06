@@ -27,12 +27,18 @@ public class Konto {
 	}
 	
 	// sætter beholdning og sikrer den er blevet ændret korrekt
-	public boolean setBeholdning(int aendring){
+	public boolean addBeholdning(int aendring){
 		int tempbeholdning = beholdning;
 		this.beholdning += aendring;
 		return testBeholdningsAendring(tempbeholdning, aendring);
 	}
 	
+	// sæt beholdning til en given værdi
+	public boolean setBeholdning(int vaerdi){
+		this.beholdning = vaerdi;
+		return testBeholdningHolder(this.beholdning);
+	}
+
 	// tester at beholdning er opdateret korrekt
 	private boolean testBeholdningsAendring(int beholdning, int aendring){
 		
@@ -45,5 +51,11 @@ public class Konto {
 			this.beholdning = 0;
 			return true;
 		}
+	}
+	
+	// tester beholdning større end 0
+	private boolean testBeholdningHolder(int vaerdi){
+		this.beholdning = this.beholdning >= 0? this.beholdning:0;
+		return true;
 	}
 }

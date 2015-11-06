@@ -13,9 +13,17 @@ public class Konto {
 		this.beholdning = 0;
 	}
 	
-	// returnerer nuværende beholdning
+	// returnerer nuværende beholdning hvis større end 0
 	public int getBeholdning(){
-		return this.beholdning;
+		if(this.beholdning > 0){
+			return this.beholdning;
+		}
+		// hvis beholdning under 0, ændre til 0 og returner værdi
+		else{
+			this.beholdning = 0;
+			return this.beholdning;
+		}
+		
 	}
 	
 	// sætter beholdning og sikrer den er blevet ændret korrekt

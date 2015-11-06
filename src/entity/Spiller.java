@@ -4,26 +4,25 @@ public class Spiller {
 
 	// Initialiserer attributter
 	private static int maxSpillere = 0;
-	private int beholdning = 1000;
+	private int startvaerdi = 1000;
+	private boolean lykkedes = false;
+	private Konto konto = new Konto(startvaerdi);
 	private Brik spillerBrik;
 
-	// Konstruktoer tae¦ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
+	// Konstruktoer taeï¿½ller maxspillere 1 op og en brik bliver tildelt med et spillernummer
 	public Spiller(){
 		++maxSpillere;
 		spillerBrik = new Brik(maxSpillere);
 	}
 
 	// opdaterer spillerens beholdning
-	public void opdaterBeholdning(int opdatering){
-		beholdning += opdatering;
-		if( beholdning < 0){
-			beholdning = 0;
-		}
+	public boolean opdaterBeholdning(int opdatering){
+		return konto.setBeholdning(opdatering);
 	}
 	
 	// get metoder
 	public int getBeholdning(){
-		return beholdning;
+		return konto.getBeholdning();
 	}
 	public Brik getBrik(){
 		return this.spillerBrik;

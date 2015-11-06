@@ -15,6 +15,7 @@ public class SpilController {
 	private static Spiller nuvaerendeSpiller;
 	private static int ekstraTurFelt = 10;
 	private static int sumForAtVinde = 3000;
+	
 	private static boolean vinder = false;
 	
 	public static void main(String[] args) {
@@ -48,8 +49,13 @@ public class SpilController {
 		raflebaeger.slaaTerninger();
 		
 		//Laegger feltets vaerdi til spillers beholdning, opdaterer spillerscore på GUI og sætter terningslaget
-		s.opdaterBeholdning(sp.getFelt(raflebaeger.getSum()-2).getVaerdi());
-		gc.opdaterSpillerScore(s);
+		if(s.opdaterBeholdning(sp.getFelt(raflebaeger.getSum()-2).getVaerdi())){
+			gc.opdaterSpillerScore(s);
+		}
+		else{
+			System.out.println("LOG: opdatering af beholdning fejlede!");
+			gc.afslutSpil();
+		}
 		gc.setTerninger(raflebaeger);
 		
 		// sætter spillers brik på spillepladen
